@@ -1,0 +1,59 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion '28.0.2'
+
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            def fileName = "tmgk${defaultConfig.versionName}.apk"
+            
+            outputFileName = fileName
+        }
+    }
+
+    defaultConfig {
+        applicationId "com.wxs.scanner"
+        minSdkVersion 19
+        targetSdkVersion 29
+        versionCode 17
+        versionName "2.6"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    signingConfigs {
+        release {
+            storeFile file('/tmgk.jks')
+            storePassword 'tmgk1234567'
+            keyAlias 'tmgk'
+            keyPassword 'tmgk1234567'
+        }
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+}
+
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    implementation 'com.android.support:appcompat-v7:25.3.0'
+    testImplementation 'junit:junit:4.12'
+    implementation 'com.android.support:recyclerview-v7:25.3.0'
+    implementation 'com.squareup.okhttp3:okhttp:3.6.0'
+    implementation 'com.google.code.gson:gson:2.2.4'
+    implementation 'com.google.android.gms:play-services-appindexing:8.4.0'
+    implementation('com.facebook.fresco:fresco:0.12.0') {
+        exclude group: "com.android.support"
+    }
+}

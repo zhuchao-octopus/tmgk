@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Scanner</string>
+    <string name="result_num">(%1$d)</string>
+    <string name="saomiao">扫描记录</string>
+    <string name="SN1">SN1</string>
+    <string name="SN2">SN2</string>
+    <string name="SN3">SN3</string>
+    <string name="SN4">SN4</string>
+    <string name="SN5">SN5</string>
+    <string name="SN6">SN6</string>
+    <string name="SN7">SN7</string>
+    <string name="hint">MAC验证</string>
+</resources>
